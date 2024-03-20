@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<h1>Add New Property</h1>
+
+<form method="POST" action="" class="" enctype="multipart/form-data">
+    {{form.csrf_token}}
+
+    <div class="form-item">
+        {{form.title.label}}
+        {{form.title}}
+    </div>
+
+    <div class="form-item">
+        {{form.description.label}}
+        {{form.description(rows=5)}}
+    </div>
+
+
+    <div class="form-ctn">
+
+        <div class="form-item">
+            {{form.number_of_rooms.label}}
+            {{form.number_of_rooms (placeholder=3)}}
+        </div>
+
+        <div class="form-item">
+            {{form.number_of_bathrooms.label}}
+            {{form.number_of_bathrooms (placeholder=3)}}
+        </div>
+
+    </div>
+
+
+    <div class="form-ctn">
+        <div class="form-item">  
+            {{form.price.label}}
+            {{form.price (placeholder='15,000,000')}}
+            {% for error in form.price.errors %}
+                <span class="errormsg">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+
+        <div class="form-item">
+            {{form.propertyType.label}}
+            {{form.propertyType}}
+        </div>
+    </div>
+
+    <div class="form-item">
+        {{form.location.label}}
+        {{form.location (placeholder='10 WaterLoo Road')}}
+    </div>
+
+    {{form.image}}
+
+    <button class="btn btn-primary" type="submit">Add Property</button>
+
+</form>
+
+{% endblock %}

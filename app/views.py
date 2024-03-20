@@ -4,10 +4,11 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
-
+import os
 from app import app
-from flask import render_template, request, redirect, url_for
-
+from flask import render_template, request, redirect, url_for, flash
+from werkzeug.utils import secure_filename
+from .forms import AddPropertyForm
 
 ###
 # Routing for your application.
@@ -24,6 +25,29 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+@app.route ('/properties', methods=['GET'])
+def properties():
+     
+    return render_template('properties.html')
+
+@app.route('/properties/create', methods=['GET', 'POST'])
+def newProperty():
+    form = AddPropertyForm()
+
+    if form.validate_on_submit():
+
+        image = form.image.data
+        filename = secure_filename(image.filename)
+        image.save(os.path.join(
+            app.config['UPLOAD_FOLDER'], filename
+        ))
+        
+       
+    
+        flash('Property Added')
+        return redirect(url_for('properties'))
+
+    return render_template('newProperty.html', form=form)
 
 ###
 # The functions below should be applicable to all Flask apps.
