@@ -7,6 +7,14 @@
 <h1>Properties</h1>
 
 <div>
+
+    {%for prop in props:%}
+        <img src="{{ url_for('get_image', filename=prop.image_name) }}" />
+        <p>{{get_img(prop.image_name) }}</p>
+        <p>{{prop.title}}</p>
+        <p>{{prop.location}}</p>
+        <p>{{prop.price}}</p>
+    {%endfor%}
     
 </div>
 
