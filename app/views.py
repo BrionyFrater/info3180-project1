@@ -67,6 +67,13 @@ def newProperty():
 def get_image(filename):
     return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
 
+@app.route('/properties/<propertyid>')
+def single_property(propertyid):
+    prop = db.session.execute(db.select(Property).filter_by(id=propertyid)).scalar_one()
+
+    return render_template('property.html', prop=prop)
+
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###

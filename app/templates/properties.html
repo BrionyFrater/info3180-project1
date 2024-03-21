@@ -23,7 +23,10 @@
             <div class="price">${{prop.price}}</div>
         </div>
 
-        <button>View Property</button>
+        <a href="{{url_for('single_property', propertyid=prop.id)}}">
+            <button>View Property</button>
+        </a>
+        
         
     </div>
     {%endfor%}

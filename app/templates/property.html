@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="single_prop">
+
+    <div class="single_thumbnail">
+        <img src="{{ url_for('get_image', filename=prop.image_name) }}">
+    </div>
+
+    <div class="single_info">
+        <h3>{{prop.title}}</h3> 
+        
+        <div>
+            <span class="price">${{prop.price}}</span>
+            <span class="type">{{prop.property_type}}</span>
+        </div>
+
+
+        <p>{{prop.description}}</p>
+
+        <div>
+            <span class="bedroom"> <i data-lucide="bed-double"></i> {{prop.num_rooms}} Bedrooms</span>
+            <span> <i data-lucide="bath"></i>  {{prop.num_baths}} Bathrooms</span>
+        </div>
+
+        <span class="">
+            <i data-lucide="map-pin"></i>
+            {{prop.location}}
+        </span>
+
+        <button>Email Realtor</button>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -9,6 +9,9 @@ body {
 
 p, h4{margin: 0;}
 
+h3{color: #000;}
+
+
 nav{background-color: var(--bg-green);}
 
 main .container{
@@ -102,7 +105,6 @@ button[type='submit']{
 }
 
 .properties{
-    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     grid-gap: 30px; 
@@ -133,6 +135,17 @@ button[type='submit']{
     font-size: 0.8rem;
 }
 
+.type{
+    margin-top: 10px;
+    border-radius: 30px;
+    padding: 5px 10px;
+    background-color: #f7be45;
+    color: white;
+    max-width: fit-content;
+    font-size: 0.8rem;
+    
+}
+
 .thumbnail {
     width: 100%;
     height: 55%;
@@ -153,6 +166,7 @@ button[type='submit']{
     font-size: 0.9rem;
 }
 
+
 h4{
     font-size: 1.2rem;
 }
@@ -171,3 +185,59 @@ svg{
     position: absolute;
     bottom: 0;
 }
+
+.single_prop button{
+    border: none;
+    background-color: var(--bg-green);
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    max-width: fit-content;
+}
+
+.single_prop button:hover{
+   background-color: #1f8a79;    
+}
+
+.bedroom{
+    margin-right: 20px;
+}
+
+.single_prop{
+    background-color: #fff;
+    max-width: 700px;
+    border-radius: 5px;
+    overflow: hidden;
+    word-wrap: normal;
+    display: flex;
+    max-height: 400px;
+    margin-bottom: 100px;
+    
+}
+
+.single_thumbnail {
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.single_thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+}
+
+.single_info:not(h3){
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #4b5668;
+}
+
+
+
+h1{margin-bottom: 30px;}
