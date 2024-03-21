@@ -16,9 +16,14 @@
         
         <div class="info">
             <h4>{{prop.title}}</h4>
-            <p>{{prop.location}}</p>
+            <span class="location">
+                <i data-lucide="map-pin"></i>
+                {{prop.location}}
+            </span>
             <div class="price">${{prop.price}}</div>
         </div>
+
+        <button>View Property</button>
         
     </div>
     {%endfor%}
