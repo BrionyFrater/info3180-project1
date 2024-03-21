@@ -28,23 +28,10 @@ def about():
 
 @app.route ('/properties', methods=['GET'])
 def properties():
-    # def get_uploaded_images():
-    #     uploaded_images = []
-
-    #     rootdir = os.path.join(app.config['UPLOAD_FOLDER'])
-    #     for subdir, dirs, files in os.walk(rootdir):
-    #         for file in files:
-    #             file_extension = os.path.splitext(file)
-    #             if file_extension[1].lower() in ['.png', '.jpg']:
-    #                 uploaded_images.append(os.path.join(file))
-    #     return uploaded_images
-    
-    def get_img(filename):
-        return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
     
     props = db.session.execute(db.select(Property)).scalars()
 
-    return render_template('properties.html', props=props, get_img=get_img)
+    return render_template('properties.html', props=props)
 
 @app.route('/properties/create', methods=['GET', 'POST'])
 def newProperty():

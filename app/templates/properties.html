@@ -1,20 +1,28 @@
 
 {% extends "base.html" %}
+{% include 'flash_messages.html' %}
 
 {% block main %}
-{% include 'flash_messages.html' %}
 
 <h1>Properties</h1>
 
-<div>
+<div class="properties">
 
     {%for prop in props:%}
-        <img src="{{ url_for('get_image', filename=prop.image_name) }}" />
-        <p>{{get_img(prop.image_name) }}</p>
-        <p>{{prop.title}}</p>
-        <p>{{prop.location}}</p>
-        <p>{{prop.price}}</p>
+    <div class="property">
+        <div class="thumbnail">
+            <img src="{{ url_for('get_image', filename=prop.image_name) }}" />
+        </div>
+        
+        <div class="info">
+            <h4>{{prop.title}}</h4>
+            <p>{{prop.location}}</p>
+            <div class="price">${{prop.price}}</div>
+        </div>
+        
+    </div>
     {%endfor%}
+    
     
 </div>
 
